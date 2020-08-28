@@ -1,9 +1,24 @@
 import React from 'react'
+import EditButtons from '../UI/EditButtons'
 
-export default ({title, location, content}) => 
-<div className="col-8 bg-light p-3">
-  <h4>{title}</h4>
-  <p className="text-muted">{'Место проведения: '+location}</p>
-  <hr/>
-  <p className="text-justify" dangerouslySetInnerHTML={{__html: content}}></p>
-</div>
+export default ({ title, location, content, onClickEdit, onClickDelete }) => (
+  <div className="col-md-8 bg-light p-3">
+    <div>
+      <EditButtons
+        onClickEdit={onClickEdit}
+        onClickDelete={onClickDelete}
+        size="sm"
+        color="white"
+        row
+      />
+      <h4>{title}</h4>
+    </div>
+
+    <p className="text-muted">{'Место проведения: ' + location}</p>
+    <hr />
+    <p
+      className="text-justify"
+      dangerouslySetInnerHTML={{ __html: content }}
+    ></p>
+  </div>
+)

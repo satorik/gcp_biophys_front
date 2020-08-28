@@ -5,20 +5,20 @@
 
 .nav-link-secondary {
   cursor: pointer;
-  color: white
+  color: white;
 }
 
 .nav-link-secondary:hover {
-  background-color: #9AB6C8;
+  background-color: #9ab6c8;
   cursor: pointer;
 }
 
 .nav-bar-top {
-  background-color: #062642
+  background-color: #062642;
 }
 
-.nav-link:hover{
-  background-color:  #9AB6C8;
+.nav-link:hover {
+  background-color: #9ab6c8;
 }
 
 .education-button-active {
@@ -66,12 +66,55 @@ table td {
   margin-bottom: 10px;
 }
 
+.ScheduleTime {
+  height: 6rem;
+}
+
+.HistoryImage {
+  width: 100%;
+}
+
+.ResSubsection {
+  width: 100%;
+}
+
+.SeminarSelector {
+  border-right: 3px solid #dc3545;
+}
+
+.SeminarDropDown {
+  display: none;
+}
+
+.SeminarDropDownItem {
+  border-bottom: 2px solid white;
+}
+
+.SeminarDropDownItem:last-child {
+  border-bottom: none;
+}
+
+.SeminarDropDownItem:hover {
+  color: #dc3545;
+  border-bottom: 2px solid #dc3545;
+}
+
 @media (min-width: 992px) {
   .SideDrawerNav {
     display: none;
   }
   .SideDrawer {
     display: none;
+  }
+  .HistoryImage {
+    float: right;
+    margin-top: -60px;
+    margin-right: -60px;
+    margin-left: 5px;
+    width: 50%;
+  }
+  .ResSubsection {
+    width: 50%;
   }
 }
 
@@ -81,10 +124,20 @@ table td {
   }
 }
 
-.Open {
-  transform: translateX(0);
+@media (max-width: 768px) {
+  .ScheduleTime {
+    height: 10rem;
+  }
+  .SeminarSelector {
+    display: none;
+  }
+  .SeminarDropDown {
+    display: block;
+  }
 }
 
-.Close {
-  transform: translateX(-100%);
+@media (max-width: 576px) {
+  .ScheduleTime {
+    height: 12rem;
+  }
 }
