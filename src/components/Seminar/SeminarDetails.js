@@ -8,7 +8,7 @@ export default ({ title, location, content, onClickEdit, onClickDelete }) => (
         onClickEdit={onClickEdit}
         onClickDelete={onClickDelete}
         size="sm"
-        color="white"
+        color="black"
         row
       />
       <h4>{title}</h4>

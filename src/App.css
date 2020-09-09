@@ -57,7 +57,7 @@ table td {
   height: 100%;
   left: 0;
   top: 0;
-  z-index: 200;
+  z-index: 1500;
   background-color: #fff;
   padding: 32px 16px;
   box-sizing: border-box;
@@ -90,13 +90,33 @@ table td {
   border-bottom: 2px solid white;
 }
 
-.SeminarDropDownItem:last-child {
-  border-bottom: none;
+.ConferenceSelector {
+  border-right: 3px solid #17a2b8;
 }
 
-.SeminarDropDownItem:hover {
-  color: #dc3545;
-  border-bottom: 2px solid #dc3545;
+.ConferenceDropDown {
+  display: none;
+}
+
+.ConferenceDropDownItem {
+  border-bottom: 2px solid white;
+}
+
+.Modal {
+  overflow-y: auto;
+  max-height: 85%;
+  position: fixed;
+  z-index: 500;
+  width: 70%;
+  left: 15%;
+  top: 10%;
+}
+
+@media (max-width: 1400px) {
+  .Modal {
+    width: 90%;
+    left: 5%;
+  }
 }
 
 @media (min-width: 992px) {
@@ -133,6 +153,17 @@ table td {
   }
   .SeminarDropDown {
     display: block;
+  }
+  .ConferenceSelector {
+    display: none;
+  }
+  .ConferenceDropDown {
+    display: block;
+  }
+
+  .Modal {
+    width: 96%;
+    left: 2%;
   }
 }
 

@@ -123,7 +123,7 @@ const Seminar = () => {
   React.useEffect(() => {
     if (data && urlId) {
       const selectedSeminar = data.seminars.indexOf(
-        data.seminars.find(el => el.id === urlId)
+        data.seminars.find((el) => el.id === urlId)
       )
       if (selectedSeminar && selectedSeminar !== -1) setViewId(selectedSeminar)
       else setViewId(0)
@@ -147,7 +147,7 @@ const Seminar = () => {
 
   const { seminars } = data
 
-  const onShowSeminarDetails = i => {
+  const onShowSeminarDetails = (i) => {
     history.push({ search: '?id=' + seminars[i].id })
   }
 
@@ -161,7 +161,7 @@ const Seminar = () => {
     else setMode({ ...mode, [operation]: false })
   }
 
-  const onSetMode = operation => {
+  const onSetMode = (operation) => {
     setIsModalOpen(true)
     setMode({ ...mode, [operation]: true })
     document.body.style.overflow = 'hidden'
@@ -171,12 +171,12 @@ const Seminar = () => {
     onSetMode('isCreating')
   }
 
-  const onEditSeminar = id => {
+  const onEditSeminar = (id) => {
     onSetMode('isEditing')
     setUpdatedSeminar(seminars[id])
   }
 
-  const onDeleteSeminar = id => {
+  const onDeleteSeminar = (id) => {
     onSetMode('isDeleting')
     setUpdatedSeminar(seminars[id])
   }
@@ -194,7 +194,7 @@ const Seminar = () => {
     onClearMode('_', true)
   }
 
-  const onChangeSeminarHandler = async postObject => {
+  const onChangeSeminarHandler = async (postObject) => {
     if (mode.isEditing) {
       const forUpdate = getUpdateData(updatedSeminar, postObject)
       try {

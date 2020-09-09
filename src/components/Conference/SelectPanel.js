@@ -1,20 +1,19 @@
 import React from 'react'
-import SeminarCard from './SeminarCard'
+import ConferenceCard from './ConferenceCard'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { getDateTimeToLocal } from '../../utils/dateFormat'
+import { getDateToLocal } from '../../utils/dateFormat'
 
-export const SelectPanel = ({ seminars, selectedId, onSelect }) => {
+export const SelectPanel = ({ conferences, selectedId, onSelect }) => {
   const [isDDOpen, setIsDDOpen] = React.useState(false)
 
-  const seminarMap = seminars.map((seminar, idx) => (
-    <SeminarCard
+  const conferenceMap = conferences.map((conference, idx) => (
+    <ConferenceCard
       key={idx}
-      date={seminar.date}
-      speaker={seminar.speaker}
+      dateFrom={conference.dateFrom}
+      dateTo={conference.dateTo}
       active={selectedId === idx}
-      last={idx === seminars.length - 1}
-      onCampus={seminar.onCampus}
-      onSelectSeminar={() => onSelect(idx)}
+      last={idx === conferences.length - 1}
+      onSelectConference={() => onSelect(idx)}
     />
   ))
   const toggleDropDown = () => {
@@ -23,10 +22,10 @@ export const SelectPanel = ({ seminars, selectedId, onSelect }) => {
 
   return (
     <>
-      <div className="col-md-4 p-0 flex-column SeminarSelector">
-        {seminarMap}
+      <div className="col-md-4 p-0 flex-column ConferenceSelector">
+        {conferenceMap}
       </div>
-      <div className="SeminarDropDown dropdown col-sm-12 bg-light p-1">
+      <div className="ConferenceDropDown dropdown col-sm-12 bg-light p-1">
         <button
           className="btn btn-secondary text-right w-100"
           type="button"
@@ -43,15 +42,18 @@ export const SelectPanel = ({ seminars, selectedId, onSelect }) => {
             className="list-group dropdown-menu m-1 p-0"
             onClick={() => setIsDDOpen(false)}
           >
-            {seminars.map((seminar, idx) => (
+            {conferences.map((conference, idx) => (
               <div
-                className="SeminarDropDownItem p-2 font-weight-bold text-secondary"
+                className="ConferenceDropDownItem p-2 font-weight-bold text-secondary"
                 key={idx}
                 onClick={() => onSelect(idx)}
               >
-                <p className="text-wrap m-0">{seminar.speaker}</p>
+                <p className="text-wrap m-0">{conference.title}</p>
                 <p className="text-wrap m-0">
-                  {getDateTimeToLocal(seminar.date).join(' ')}
+                  {getDateToLocal(conference.dateFrom)}
+                </p>
+                <p className="text-wrap m-0">
+                  {getDateToLocal(conference.dateTo)}
                 </p>
                 <hr />
               </div>
